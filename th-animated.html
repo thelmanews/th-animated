@@ -91,7 +91,37 @@ A Core element which all thelma animated elements extend. No use as a stand alon
             currentState[attribute] = this[attribute];
           }
           return JSON.stringify(currentState);
+        },
+        computeWidth: function(width){
+          var self = this;
+
+          if(/.*\%/.test(width)){
+            var parentWidth = self.parentNode.offsetWidth,
+                percentWidth = parseFloat(width)/100,
+                computedWidth = parentWidth * percentWidth;
+            return computedWidth;
+          } else if(width) {
+            return width;
+          } else {
+            return self.parentNode.offsetWidth;
+          }
+
+        },
+        computeHeight: function(height){
+          var self = this;
+
+          if(/.*\%/.test(height)){
+            var parentHeight = self.parentNode.offsetHeight,
+                percentHeight = parseFloat(height)/100,
+                computedHeight = parentHeight * percentHeight;
+            return computedHeight;
+          } else if(height){
+            return height;
+          } else {
+            return self.parentNode.offsetHeight;
+          }
         }
+
 
       });
   </script>
