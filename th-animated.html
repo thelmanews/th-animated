@@ -109,7 +109,7 @@ A Core element which all thelma animated elements extend. No use as a stand alon
         },
         computeHeight: function(height){
           var self = this;
-
+          // TODO: combine with utility.js function
           if(/.*\%/.test(height)){
             var parentHeight = self.parentNode.offsetHeight,
                 percentHeight = parseFloat(height)/100,
@@ -119,6 +119,14 @@ A Core element which all thelma animated elements extend. No use as a stand alon
             return height;
           } else {
             return self.parentNode.offsetHeight;
+          }
+        },
+        widthFilter: function(value){
+          console.log(value);
+          if(/.*\%/.test(value)){
+            return value;
+          } else {
+            return value + "px";
           }
         }
 
