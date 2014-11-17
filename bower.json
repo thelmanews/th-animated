@@ -4,6 +4,7 @@
   "keywords": "polymer, web-components, thelma",
   "main": "th-animated.html",
   "dependencies": {
-    "polymer": "Polymer/polymer#~0.5.1"
+    "polymer": "Polymer/polymer#~0.5.1",
+    "th-theme": "https://github.com/thelmanews/th-theme.git"
   }
 }
