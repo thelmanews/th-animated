@@ -93,34 +93,11 @@ A Core element which all thelma animated elements extend. No use as a stand alon
           }
           return JSON.stringify(currentState);
         },
-        computeWidth: function(width){
-          var self = this;
-
-          if(/.*\%/.test(width)){
-            var parentWidth = self.parentNode.offsetWidth,
-                percentWidth = parseFloat(width)/100,
-                computedWidth = parentWidth * percentWidth;
-            return computedWidth;
-          } else if(width) {
-            return width;
-          } else {
-            return self.parentNode.offsetWidth;
-          }
-
+        computeWidth: function(){
+          return parseInt(window.getComputedStyle(this).width);
         },
-        computeHeight: function(height){
-          var self = this;
-          // TODO: combine with utility.js function
-          if(/.*\%/.test(height)){
-            var parentHeight = self.parentNode.offsetHeight,
-                percentHeight = parseFloat(height)/100,
-                computedHeight = parentHeight * percentHeight;
-            return computedHeight;
-          } else if(height){
-            return height;
-          } else {
-            return self.parentNode.offsetHeight;
-          }
+        computeHeight: function(){
+          return parseInt(window.getComputedStyle(this).height);
         },
         widthFilter: function(value){
           if(/.*\%/.test(value)){
