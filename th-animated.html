@@ -94,23 +94,10 @@ A Core element which all thelma animated elements extend. No use as a stand alon
           return JSON.stringify(currentState);
         },
         computeWidth: function(){
-          console.log(this.tagName);
-          console.log('width');
-          console.log(parseInt(window.getComputedStyle(this).width));
           return parseInt(window.getComputedStyle(this).width);
         },
         computeHeight: function(){
-          console.log(this.tagName);
-          console.log('height');
-          console.log(parseInt(window.getComputedStyle(this).height));
           return parseInt(window.getComputedStyle(this).height);
-        },
-        widthFilter: function(value){
-          if(/.*\%/.test(value)){
-            return value;
-          } else {
-            return value + "px";
-          }
         }
 
 
