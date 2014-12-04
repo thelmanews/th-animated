@@ -42,6 +42,11 @@ A Core element which all thelma animated elements extend. No use as a stand alon
          * @type {Boolean}
          */
         initialized: false,
+        /**
+         * Initialize input type as array for components that 'connect'
+         * @type {Array}
+         */
+        input: [],
         domReady: function() {
             this.init();
 
