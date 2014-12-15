@@ -99,31 +99,33 @@ A Core element which all thelma animated elements extend. No use as a stand alon
           return JSON.stringify(currentState);
         },
         computeWidth: function(){
-            
-          // var width = this.style.width;
-          // if(/.*\%/.test(width)){
-          //   width = parseInt(window.getComputedStyle(this).width);
-          // } else {
-          //   width = parseInt(width);
-          // }
-
-          // return width;
-          
           // NOTE: getComputedStyle and this.style are not as reliable; offset works better, as long as there is no padding on elements
-          return this.offsetWidth;
+
+          var width = this.offsetWidth;
+
+          if (width <= 0){
+            width = this.style.width;
+            if(/.*\%/.test(width)){
+              width = parseInt(window.getComputedStyle(this).width);
+            }else {
+              width = parseInt(width);
+            }
+          }
+          return width;
         },
         computeHeight: function(){
-          // var height = this.style.height;
-          // if(/.*\%/.test(height)){
-          //   height = parseInt(window.getComputedStyle(this).height);
-          // } else {
-          //   height = parseInt(height);
-          // }
-          
-          // return height;
-          
           // NOTE: getComputedStyle and this.style are not as reliable; offset works better, as long as there is no padding on elements
-          return this.offsetHeight; 
+          var height = this.offsetHeight;
+
+          if (height <= 0){
+            height = this.style.height;
+            if(/.*\%/.test(height)){
+              height = parseInt(window.getComputedStyle(this).height);
+            }else {
+              height = parseInt(height);
+            }
+          }
+          return height;
         }
 
 
